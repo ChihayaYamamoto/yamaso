@@ -327,3 +327,15 @@ body {
     background-color: rgba(255, 255, 255, 0.8); /* 白を80%の濃さで表示 */
     padding: 20px;
 }
+/* 写真を縦長にして高さを揃える設定 */
+.custom-img {
+    width: 100%;       /* 横幅は親要素（1/4サイズ）に合わせる */
+    height: 400px;      /* ここで縦の長さを自由に調整（例：400px） */
+    object-fit: cover;  /* 重要：縦横比を保ったまま、指定したサイズで切り抜く */
+    display: block;     /* 下の変な隙間を消す */
+}
+
+/* もし写真同士を完全に「合体（隙間ゼロ）」にしたい場合 */
+.w3-row-padding > .w3-col {
+    padding: 0 !important; /* W3.CSSの標準の隙間を消す */
+}
