@@ -313,3 +313,17 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     cursor: pointer;
     font-size: 16px;
 }
+/* サイト全体の背景を和風にする */
+body {
+    background-image: url("images/5.png"); /* 画像のパス */
+    background-repeat: repeat;                /* 画像を繰り返して敷き詰める */
+    background-attachment: fixed;              /* スクロールしても背景は動かさない */
+    background-size: cover;                    /* 画面全体を覆う（質感を重視するなら消してもOK） */
+    color: #333;                               /* 文字色を少し濃い灰色にすると和風に合います */
+}
+
+/* 文字を読みやすくするために、コンテンツ部分に白い背景を薄く敷く */
+.w3-content {
+    background-color: rgba(255, 255, 255, 0.8); /* 白を80%の濃さで表示 */
+    padding: 20px;
+}
