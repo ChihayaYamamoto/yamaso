@@ -217,51 +217,105 @@ h1, h2, h3, h4 {
                 また、山宗として求められるレベル以上の品質のトマトを生産しております。
             </p>
         </div>
-        <div class="w3-center w3-margin-top">
-            <img src="images/1.JPG" style="width:150px; height:100px; object-fit:cover; border:1px solid #ccc; margin:5px;">
-            <img src="images/4.JPG" style="width:150px; height:100px; object-fit:cover; border:1px solid #ccc; margin:5px;">
+        
+        <div class="w3-margin-top" style="display: flex; justify-content: center; gap: 40px; align-items: flex-start;">
+            
+            <div style="text-align: center;">
+                <p style="margin-bottom: 8px; font-weight: bold; font-size: 0.9em;">飛騨の豊かな自然</p>
+                <img src="images/1.JPG" style="width:200px; height:130px; object-fit:cover; border:1px solid #ccc;">
+            </div>
+
+            <div style="text-align: center;">
+                <p style="margin-bottom: 8px; font-weight: bold; font-size: 0.9em;">夕暮れのビニールハウス</p>
+                <img src="images/4.JPG" style="width:200px; height:130px; object-fit:cover; border:1px solid #ccc;">
+            </div>
+            
         </div>
     </div>
 
     <hr style="border-top: 1px dashed #ccc;">
 
     <!-- 2. 飛騨トマト -->
-    <div class="w3-padding-32">
-        <div class="w3-row">
-            <div class="w3-col m5">
-                <h2 class="pdf-section-title title-hida">飛騨トマト</h2>
-                <div class="w3-padding">
-                    <p><b>品種：</b> 麗月（れいげつ）</p>
-                    <p><b>品種特性：</b><br>
-                    肉質よく、コクがあり食味は極めてよい。<br>
-                    よく日持ちする。</p>
-                    <img src="images/1.JPG" class="img-placeholder" alt="飛騨トマト写真">
+    <style>
+        /* 品種特性のレイアウト調整 */
+        .spec-list {
+            display: grid;
+            grid-template-columns: auto 1fr; /* 左側のラベル幅を自動、右側を残り全部に設定 */
+            gap: 0 5px; /* ラベルと本文の間の隙間 */
+            margin-top: 10px;
+        }
+        .spec-label {
+            font-weight: bold;
+        }
+        
+        /* 矢印を黒に変更 */
+        .flow-arrow {
+            font-size: 24px;
+            color: #333; /* 赤から黒に近い濃いグレーに変更 */
+            font-weight: normal;
+        }
+        
+        /* 和モダンを意識したカラー設定 */
+        .box-saibai { background-color: #e6e9e4; border-color: #a8b0a5; } /* 薄青磁（うすせいじ）風 */
+        .box-logic { background-color: #f2ebe2; border-color: #d1c5b4; }  /* 練色（ねりいろ）風 */
+        .box-result { background-color: #f7f6f5; border-color: #8c837d; color: #5c4b41; font-weight: bold; } /* 灰桜風 */
+        
+        /* 共通の微調整 */
+        .flow-box {
+            border: 1px solid;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border-radius: 2px; /* 少し角を立たせてモダンに */
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+        }
+        </style>
+        
+        <div class="w3-padding-32">
+            <div class="w3-row">
+                <div class="w3-col m5">
+                    <h2 class="pdf-section-title title-hida">飛騨トマト</h2>
+                    <div class="w3-padding">
+                        <div class="spec-list">
+                            <span class="spec-label">品種：</span>
+                            <span>麗月（れいげつ）</span>
+                            
+                            <span class="spec-label">品種特性：</span>
+                            <span>肉質よく、コクがある<br>よく日持ちする。</span>
+                        </div>
+                        <img src="images/1.JPG" class="img-placeholder" alt="飛騨トマト写真" style="margin-top:20px;">
+                    </div>
                 </div>
-            </div>
-            
-            <div class="w3-col m7">
-                <div class="flow-container">
-                    <div class="flow-box" style="background-color:#e8eaf6;">
-                        <h4 style="margin:0; color:#3f51b5;">栽培環境</h4>
-                        <p class="w3-small">3,000メートル級の山々に囲まれる高冷地にあり、<br><b>寒暖差の激しい地域。</b></p>
-                    </div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-box" style="background-color:#fff3e0;">
-                        <p class="w3-small" style="text-align:left;">
-                        昼に光合成した糖が夜の涼しさにより、果実に補給される。<br>
-                        また、有機酸も夜の涼しさで植物内に保持される。</p>
-                        <p class="w3-tiny w3-text-grey">(夜暑い場合、糖と有機酸は呼吸により消耗)</p>
-                    </div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-box flow-highlight">
-                        「食味」、「品質」の高いトマト
+                
+                <div class="w3-col m7">
+                    <div class="flow-container">
+                        <div class="flow-box box-saibai">
+                            <h4 style="margin:0; font-weight:bold;">栽培環境</h4>
+                            <p class="w3-small">3,000メートル級の山々に囲まれる高冷地にあり、<br><b>寒暖差の激しい地域。</b></p>
+                        </div>
+                        
+                        <div class="flow-arrow">↓</div>
+                        
+                        <div class="flow-box box-logic">
+                            <p class="w3-small">
+                                昼に光合成した糖が夜の涼しさにより、果実に補給される。<br>
+                                また、有機酸も夜の涼しさで植物内に保持される。
+                            </p>
+                            <p style="font-size: 0.7em; color: #888; margin-top: 5px;">
+                                (夜暑い場合、糖と有機酸は呼吸により消耗)
+                            </p>
+                        </div>
+                        
+                        <div class="flow-arrow">↓</div>
+                        
+                        <div class="flow-box box-result">
+                            「食味」、「品質」の高いトマト
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <hr style="border-top: 1px dashed #ccc;">
 
     <!-- 3. ヘルシートマト (3つのこだわり構成) -->
     <div class="w3-padding-32">
