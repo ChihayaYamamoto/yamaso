@@ -383,3 +383,12 @@ body, h1, h2, h3, h4, h5, h6, p, a {
     padding: 20px 10px !important;
     min-height: 280px; /* トマトの説明文に合わせて少し高めに設定 */
 }
+
+/* すべての要素に対して明朝体を強制適用 */
+html, body, h1, h2, h3, h4, h5, h6, p, div, span, a {
+    font-family: "Yu Mincho", "遊明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN", "MS PMincho", "MS P明朝", serif !important;
+}
+
+.text-red {
+    color: #a20025 !important; /* えんじ色 */
+}
