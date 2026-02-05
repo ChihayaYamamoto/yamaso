@@ -507,3 +507,19 @@ p {
     background-color: #555;
     color: #fffffffd !important; /* ホバー時も白を維持 */
 }
+
+/* トップ画像のサイズと中心点の調整 */
+#home .w3-image {
+    width: 100%;             /* 横幅を画面いっぱいに広げる */
+    height: 800px;           /* 【調整ポイント1】ここで縦幅（高さ）を決めます（例：600px） */
+    object-fit: cover;       /* 指定したサイズに合わせて画像を切り抜く設定 */
+    object-position: 50% 50%; /* 【調整ポイント2】中心点の指定（横50% 縦50% が中央） */
+    display: block;
+}
+
+/* モバイル（スマホ）での高さを調整したい場合 */
+@media (max-width: 600px) {
+    #home .w3-image {
+        height: 400px;       /* スマホでは少し高さを抑える設定 */
+    }
+}
