@@ -180,6 +180,60 @@ h1, h2, h3, h4 {
     margin-bottom: 10px;
     border: 1px solid #ccc;
 }
+/* スマホ画面（600px以下）でトマトページの画像を差し替える */
+@media screen and (max-width: 600px) {
+    /* 1. 元々表示されている <img> タグを非表示にする */
+    header#home .w3-image {
+      display: none !important;
+    }
+  
+    /* 2. 代わりにヘッダーの背景として tomato2.png を表示する */
+    header#home {
+      background-image: url("images/tomato3.png") !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+      height: 100vh !important; /* 画面いっぱいに表示 */
+      
+      /* 3. 画像の中心点調整（ここでお好みの位置に変更できます） */
+      /* 50% 50% = 中央 / 50% 20% = 上寄り / 50% 80% = 下寄り */
+      background-position: 50% 20% !important; 
+      
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    /* ロゴや文字の位置調整 */
+    header#home .w3-display-middle {
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      transform: none !important;
+    }
+  }
+  /* スマホ画面（600px以下）での文章レイアウト統一 */
+@media screen and (max-width: 600px) {
+  /* 1. 初めの文章（イントロダクション）の調整 */
+  .intro-text p {
+    text-align: left !important;
+    text-indent: 1em !important; /* 文頭1文字空け */
+    margin: 0 auto 1.5em auto !important;
+  }
+
+  /* 2. 飛騨トマトの説明部分の調整 */
+  .box-logic p.w3-small {
+    text-align: left !important;
+    text-indent: 1em !important; /* 文頭1文字空け */
+    padding: 0 5px !important;
+  }
+
+  /* 飛騨トマトの補足テキスト（カッコ内の文章）は中央のままでも良いですが、
+     もし左に寄せたい場合は以下も有効にしてください */
+  .box-logic p[style*="font-size: 0.7em"] {
+    text-align: left !important;
+    padding-left: 1em !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -246,9 +300,9 @@ h1, h2, h3, h4 {
         
         <div class="intro-text">
             <p>
-                山宗では、<span class="text-red">飛騨トマト</span>と<span class="text-red">ヘルシートマト</span>を生産しています。<br>
-                また、それぞれのトマトをより美味しくする工夫を施しております。<br>
-                また、山宗として求められるレベル以上の品質のトマトを生産しております。
+                山宗では、<span class="text-red">飛騨トマト</span>と<span class="text-red">ヘルシートマト</span>を生産しています。<br class="pc-only-br">
+                また、それぞれのトマトをより美味しくする工夫を施しております。<br class="pc-only-br">
+                そして、山宗として求められるレベル以上の品質のトマトを生産しております。
             </p>
         </div>
         
@@ -314,14 +368,14 @@ h1, h2, h3, h4 {
                     <div class="flow-container">
                         <div class="flow-box box-saibai">
                             <h4 style="margin:0; font-weight:bold;">栽培環境</h4>
-                            <p class="w3-small">3,000メートル級の山々に囲まれる高冷地にあり、<br><span class="text-red">寒暖差の激しい地域。</span></p>
+                            <p class="w3-small">3,000メートル級の山々に囲まれる高冷地にあり<br class="pc-only-br"><span class="text-red">寒暖差の激しい地域。</span></p>
                         </div>
                         
                         <div class="flow-arrow">↓</div>
                         
                         <div class="flow-box box-logic">
                             <p class="w3-small">
-                                昼に光合成した糖が夜の涼しさにより、果実に補給される。<br>
+                                昼に光合成した糖が夜の涼しさにより、果実に補給される。<br class="pc-only-br">
                                 また、有機酸も夜の涼しさで植物内に保持される。
                             </p>
                             <p style="font-size: 0.7em;">
@@ -379,10 +433,7 @@ h1, h2, h3, h4 {
                 <div class="healthy-box">
                     <div class="col-header">オーグリーン</div>
                     <div class="w3-row">
-                        <div class="w3-col s4">
-                        </div>
-                        <div class="w3-col s8 w3-padding-small">
-                            <b>元肥に使用</b>
+                        <div class="w3-col s12 w3-padding-small"> <b>元肥に使用</b>
                             <p class="w3-small">土壌微生物を増やし食味の向上が期待できます。</p>
                         </div>
                     </div>

@@ -113,6 +113,90 @@ svg text {
     margin-bottom: 20px;
     height: 100%;
 }
+/* お米ページのトップ文字調整 */
+@media screen and (max-width: 600px) {
+  /* お米ページのヘッダー内の文字サイズを調整 */
+  #home .w3-display-middle h1 {
+    font-size: 24px !important; /* 文字を小さくしてはみ出しを防ぐ */
+    white-space: nowrap !important; /* 勝手な位置での改行を防ぐ */
+    width: 90vw !important; /* 画面幅の90%に収める */
+    text-align: center !important;
+  }
+
+  /* 文字の影や装飾の微調整（読みやすくするため） */
+  #home .w3-text-white b {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+/* お米ページ専用：スマホで画像を画面いっぱいに広げる */
+@media screen and (max-width: 600px) {
+  /* 1. お米ページのヘッダー外枠の制限を解除 */
+  /* rice.html の header タグの ID が home であることを前提としています */
+  header#home.w3-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 2. 画像を画面全体（横100%、縦100%）に広げる */
+  header#home .w3-image {
+    width: 100vw !important;  /* 画面の横幅いっぱい */
+    height: 100vh !important; /* 画面の高さ（全画面） */
+    max-width: none !important;
+    max-height: none !important; /* rice.html にある max-height: 400px を上書き */
+    object-fit: cover !important;
+    display: block !important;
+
+    /* 3. 中心の位置調整（ここを書き換えて調整してください） */
+    /* 例：50% 50% は真ん中、50% 50% は少し上、50% 70% は少し下を表示 */
+    object-position: 50% 30% !important; 
+  }
+
+  /* 4. 画像の上の文字（山宗のお米）が隠れないように調整 */
+  header#home .w3-display-middle {
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+  }
+}
+/* ナビゲーションバーが文字の上に重なるように修正 */
+.w3-top {
+    z-index: 9999 !important; /* 他のどの要素よりも手前に表示する */
+}
+
+/* お米ページのトップ画像部分の重なり順を調整 */
+header#home {
+    position: relative;
+    z-index: 1; /* ヘッダーより背面に配置 */
+}
+
+header#home .w3-display-middle {
+    z-index: 2 !important; /* 画像よりは前だが、ナビゲーションよりは後ろ */
+}
+/* お米ページのレイアウト調整（フォント・サイズは維持） */
+@media screen and (max-width: 600px) {
+  /* 1. トップ画像上のタイトルエリアを画面幅いっぱい（98%）まで広げる */
+  header#home h1 {
+    width: 98vw !important; 
+    white-space: nowrap !important; /* 1行に収める */
+    text-align: center !important;
+  }
+
+  /* 2. 「疎植（そしょく）」の見出しエリアを広げて1行にする */
+  #planting h2 {
+    width: 100% !important;
+    white-space: nowrap !important;
+    display: block !important;
+  }
+
+  /* 3. 「お米の販売について」の見出しエリアを広げて1行にする */
+  .w3-container h2.w3-center {
+    width: 100% !important;
+    white-space: nowrap !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -177,7 +261,7 @@ svg text {
 
   <!-- Intro -->
   <div class="w3-center w3-padding-64">
-    <p class="w3-large">私たちは四つのこだわりにより<br>高品質なこだわり米の生産をしております。</p>
+    <p class="w3-large">私たちは四つのこだわりにより<br class="pc-only-br">高品質なこだわり米の生産をしております。</p>
   </div>
 
   <!-- Summary Grid (4つのこだわりを一覧表示) -->

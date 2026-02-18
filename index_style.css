@@ -517,9 +517,151 @@ p {
     display: block;
 }
 
-/* モバイル（スマホ）での高さを調整したい場合 */
 @media (max-width: 600px) {
-    #home .w3-image {
-        height: 400px;       /* スマホでは少し高さを抑える設定 */
+    /* 親コンテナの制限を解除 */
+    header#home.w3-content {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
-}
+  
+    /* 画像を横幅いっぱいに広げる */
+    #home .w3-image {
+      width: 100% !important;
+      height: 100vh; /* 画面全体の高さにする場合。以前の設定に合わせて調整してください */
+      object-fit: cover;
+    }
+  }
+/* スマホ向けのスタイル（画面幅が768px以下の場合） */
+@media screen and (max-width: 768px) {
+    .w3-display-container {
+      height: 100vh; /* ヘッダーのコンテナを画面いっぱいの高さにする */
+      overflow: hidden;
+    }
+  
+    .w3-display-container img.w3-image {
+      height: 100vh !important; /* 画像の高さを画面いっぱいに強制 */
+      width: 100%;
+      object-fit: cover; /* 画像の比率を保ったまま、隙間なく表示 */
+      object-position: center; /* 画像の中央を基準にする */
+    }
+  }
+
+  /* スマホ画面（600px以下）のロゴサイズ調整 */
+@media (max-width: 600px) {
+    .top-logo-blend {
+      width: 180px !important; /* 現在の300pxから180pxに縮小（お好みで調整してください） */
+      height: auto !important;
+    }
+  }
+
+/* スマホ画面（600px以下）で文章を左詰めにする */
+@media (max-width: 600px) {
+    #info.w3-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 !important; /* 外側の余白を消す */
+      }
+    
+      /* 2. 各画像コンテナの幅を50%にする */
+      #info .w3-col.l3.m6 {
+        width: 50% !important;
+        float: left;
+        padding: 0 !important; /* 画像同士の隙間をゼロにする */
+      }
+    
+      /* 3. 画像自体の高さを調整（正方形に近付ける） */
+      #info .custom-img {
+        height: 200px !important; /* スマホで2列にした時に見やすい高さに調整 */
+        object-fit: cover;
+      }
+    
+      /* 4. 画像上の文字（ラベル）がズレないように固定 */
+      #info .w3-display-middle {
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: auto !important;
+      }
+      
+    #about p {
+        text-indent: 1em; /* 1文字分の空白を文頭に入れる */
+        margin-bottom: 1.5em; /* 段落ごとの間隔を調整（読みやすくするため） */
+      }
+    #about.w3-center, 
+    #about .w3-center {
+      text-align: left !important;
+    }
+  
+    /* 見出し（h2）も左詰めにしたい場合は追加 */
+    #about h2 {
+      text-align: left !important;
+    }
+  
+    /* 段落の余白を調整して読みやすくする（任意） */
+    #about p {
+      text-align: left !important;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .pc-only-br {
+      display: none; /* スマホでは改行を無視する */
+    }
+  }
+  /* スマホ画面（600px以下）の最終調整 */
+@media (max-width: 600px) {
+    /* 1. 生産品セクションを2列・隙間なしにする */
+    #info.w3-row {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      margin: 0 !important;
+    }
+  
+    /* 2. 各パネルの幅を50%にし、基準点(relative)を作る */
+    #info .w3-col.l3.m6 {
+      width: 50% !important;
+      padding: 0 !important;
+      position: relative !important; 
+      float: none !important;
+    }
+  
+    /* 3. 重要：画像と文字を包むコンテナを「ブロック要素」として高さを出す */
+    #info .w3-display-container {
+      position: relative !important;
+      display: block !important; 
+      width: 100% !important;
+      height: 200px !important; /* 画像の高さと合わせる */
+      overflow: hidden;
+    }
+  
+    /* 4. 画像自体のサイズ設定 */
+    #info .custom-img {
+      width: 100% !important;
+      height: 100% !important; /* 親コンテナ(200px)いっぱいに広げる */
+      object-fit: cover !important;
+      display: block !important;
+    }
+  
+    /* 5. 文字（ラベル）を画像の中央に「絶対配置」で重ねる */
+    #info .w3-display-middle {
+      position: absolute !important; 
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      z-index: 10 !important; /* 画像より手前に出す */
+      margin: 0 !important;
+      width: auto !important;
+    }
+  
+    /* 6. ラベルの背景を整える */
+    #info .w3-black.w3-padding {
+      padding: 8px 12px !important;
+      background-color: rgba(0, 0, 0, 0.75) !important;
+      white-space: nowrap !important;
+    }
+  }
+  
+
