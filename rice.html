@@ -197,6 +197,22 @@ header#home .w3-display-middle {
   }
 }
 
+/* お米ページの商品説明テキスト用設定 */
+.rice-product-text {
+    padding-left: 50px !important; /* PCでは左に50pxの余白を強制 */
+}
+
+/* スマホ表示（幅600px以下）の時の設定 */
+@media screen and (max-width: 600px) {
+    .rice-product-text {
+        padding-left: 0 !important;  /* スマホでは左の余白をゼロに強制 */
+        padding-right: 0 !important; /* 右の余白もゼロ */
+        text-align: center;          /* 文字を中央揃え */
+        margin-top: 20px;            /* 上に少し隙間を空ける */
+        width: 100%;                 /* 幅を画面いっぱいにする */
+    }
+}
+
 </style>
 </head>
 <body>
@@ -370,30 +386,28 @@ header#home .w3-display-middle {
   <div class="w3-container w3-padding-64">
     <h2 class="w3-center w3-margin-bottom"><b>お米の販売について</b></h2>
 
-    <!-- こだわり米 -->
     <div class="w3-row-padding w3-margin-bottom">
         <div class="w3-col m4">
             <img src="images/こだわり米販売.jpg" class="w3-image w3-round" alt="高山もち" style="height:250px; width:100%; object-fit:cover;">
         </div>
-        <div class="w3-col m8" style="padding-left: 50px !important ;">
+        <div class="w3-col m8 rice-product-text">
             <h3 class="w3-text-grey"><b>こだわり米</b></h3>
             <p class="w3-large">
-                4つのこだわりを込めて作ったコシヒカリです。<br>
+                4つのこだわりを込めて作ったコシヒカリです。<br class="pc-only-br">
                 口に残る甘さと粘り気に定評があります。ぜひ一度そのままお召し上がりください。
             </p>
             <a href="shop.html" class="btn-buy">購入ページへ</a>
         </div>
     </div>
 
-    <!-- 高山もち -->
     <div class="w3-row-padding w3-margin-bottom">
         <div class="w3-col m4">
             <img src="images/高山もち販売.jpg" class="w3-image w3-round" alt="高山もち" style="height:250px; width:100%; object-fit:cover;">
         </div>
-        <div class="w3-col m8" style="padding-left: 50px !important;">
+        <div class="w3-col m8 rice-product-text">
             <h3 class="w3-text-grey"><b>高山もち</b></h3>
             <p class="w3-large">
-                飛騨高山の冷涼な気候が育んだ、最高級のもち米です。<br>
+                飛騨高山の冷涼な気候が育んだ、最高級のもち米です。<br class="pc-only-br">
                 きめ細やかで伸びが良く、コシの強さが特徴。お餅にした時の風味と甘みは格別で、地元でも長く愛され続けている逸品です。
             </p>
             <a href="shop.html" class="btn-buy">購入ページへ</a>
@@ -402,22 +416,20 @@ header#home .w3-display-middle {
     
     <div class="w3-padding-16"></div>
 
-    <!-- 龍の瞳 -->
     <div class="w3-row-padding">
         <div class="w3-col m4">
             <img src="images/2.JPG" class="w3-image w3-round" alt="龍の瞳" style="height:250px; width:100%; object-fit:cover;">
         </div>
-        <div class="w3-col m8" style="padding-left: 50px !important ;">
+        <div class="w3-col m8 rice-product-text">
             <h3 class="w3-text-grey"><b>龍の瞳</b></h3>
             <p class="w3-large">
-                驚くほど大粒で、芳醇な香りと強い甘みが特徴の奇跡のお米。<br>
+                驚くほど大粒で、芳醇な香りと強い甘みが特徴の奇跡のお米。<br class="pc-only-br">
                 「いのちの壱」という品種から生まれたこのお米は、炊き上がりの輝きがまるで龍の瞳のようであることから名付けられました。一度食べたら忘れられない極上の味わいです。
             </p>
             <p style="margin-top: 15px;">※龍の瞳HPにて販売しております。</p>
         </div>
     </div>
   </div>
-
 
 </div>
 

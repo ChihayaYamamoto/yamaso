@@ -663,5 +663,145 @@ p {
       white-space: nowrap !important;
     }
   }
-  
+  /* =========================================
+   味噌ページ（miso.html）大豆畑の画像のスマホ調整
+   ========================================= */
+   @media screen and (max-width: 600px) {
+    /* 大豆セクション（#soybean）の中にあるメイン画像を指定 */
+    #soybean .img-main {
+        width: 100% !important;      /* 95% → 100%（画面端まで広げる） */
+        height: 250px !important;    /* 450px → 250px（高さを抑える） */
+        margin-left: 0 !important;   /* 余白があれば削除 */
+    }
+}
+/* =========================================
+   味噌ページ（miso.html）スマホで大豆画像の順序を入れ替える
+   ========================================= */
+   @media screen and (max-width: 600px) {
+    /* 大豆セクションの行（row）をFlexボックス化して逆順にする */
+    #soybean .w3-row-padding {
+        display: flex;
+        flex-direction: column-reverse; /* 下にある要素（画像）を上に持ってくる */
+    }
 
+    /* 画像の下（文章との間）に少し余白を作る */
+    #soybean .img-main {
+        margin-bottom: 20px !important; /* 元の設定を維持・強化 */
+    }
+
+    /* 文章の上（タイトルとの間）の余白調整（必要であれば） */
+    #soybean .w3-col.m6 h3 {
+        margin-top: 10px;
+    }
+}
+/* =========================================
+   味噌ページ（miso.html）販売ボックスのスマホはみ出し修正
+   ========================================= */
+   @media screen and (max-width: 600px) {
+    /* 1. 箱自体の余白を少し小さくしてスペースを広げる */
+    .sales-box {
+        padding: 15px !important; 
+    }
+
+    /* 2. 横並び指定（flex）を解除して、縦積みにする */
+    .sales-box > div {
+        display: block !important; 
+    }
+
+    /* 3. 中身（文章エリア・画像エリア）の「最小幅300px」を強制解除 */
+    .sales-box > div > div {
+        min-width: 0 !important;    /* ここが一番重要（幅制限をなくす） */
+        width: 100% !important;     /* 枠いっぱいに広げる */
+        margin-bottom: 20px;        /* 上下の間隔を少し空ける */
+    }
+
+    /* 4. 画像が大きすぎる場合も枠内に縮める */
+    .sales-box img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+/* =========================================
+   苗ページ（nae.html）のトップ画像をスマホで全画面にする
+   ========================================= */
+   @media screen and (max-width: 600px) {
+    /* ヘッダー全体の設定：上の隙間を消して枠を広げる */
+    /* 苗ページのヘッダーもID="home"がついている前提です */
+    header#home {
+        margin-top: 0 !important;       /* 上の余白を強制的に0にする */
+        padding: 0 !important;          /* 内側の余白を0にする */
+        max-width: 100% !important;     /* 幅制限を解除 */
+        width: 100% !important;         /* 画面幅いっぱいに */
+    }
+
+    /* 画像の設定：高さ制限を解除して全画面にする */
+    header#home .w3-image {
+        height: 100vh !important;       /* 画面の高さ(100%)に合わせる */
+        max-height: none !important;    /* HTMLの「max-height:500px」を無視する */
+        width: 100% !important;         /* 横幅いっぱい */
+        object-fit: cover !important;   /* 比率を保ったまま隙間なく埋める */
+        object-position: center !important; /* 画像の中央を表示 */
+    }
+
+    /* 画像の上の文字（苗とトマト加工品）の位置調整 */
+    header#home .w3-display-middle {
+        width: 100%;             /* 文字エリアの幅を確保 */
+        padding: 0 10px;         /* 画面端に文字がくっつかないように */
+        white-space: normal !important; /* 必要なら改行を許可 */
+        top: 50% !important;     /* 確実に中央に配置 */
+        transform: translate(-50%, -50%) !important;
+    }
+}
+/* =========================================
+   トップページのスマホ表示：見出しの位置修正
+   ========================================= */
+   @media screen and (max-width: 600px) {
+    /* 1. 企業情報（#about）の見出し（h2）を中央に戻す */
+    #about h2 {
+        text-align: center !important; 
+    }
+
+    /* 2. 見出しを囲んでいる枠も中央揃えにする */
+    #about .w3-center {
+        text-align: center !important;
+    }
+
+    /* 3. ただし、説明文（p）は読みやすいように左詰めのまま維持 */
+    #about p {
+        text-align: left !important;
+        text-indent: 1em; /* 文頭を1文字空ける */
+    }
+}
+/* 青文字＋青下線の設定 */
+/* 太字の青文字＋青下線の設定 */
+.text-blue-underline {
+    color: #1565c0 !important;             /* 青色 */
+    text-decoration: underline !important; /* 下線を引く */
+    text-underline-offset: 3px;            /* 下線との隙間 */
+    font-weight: bold !important;          /* ★ここを追加：太文字にする */
+}
+/* =========================================
+   スマホの時だけ改行する設定
+   ========================================= */
+
+/* 基本（パソコン表示）は改行を無効にして隠す */
+.sp-only-br {
+    display: none;
+}
+
+/* スマホ表示（幅600px以下）の時だけ改行を有効にする */
+@media screen and (max-width: 600px) {
+    .sp-only-br {
+        display: block !important; 
+    }
+}
+/* =========================================
+   パソコンの時だけ表示する空白の設定
+   ========================================= */
+
+/* スマホ表示（幅600px以下）の時だけ、この空白を消す（詰める） */
+@media screen and (max-width: 600px) {
+    .pc-only-space {
+        display: none !important; 
+    }
+}

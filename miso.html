@@ -107,6 +107,34 @@ h1, h2, h3, h4 {
     transform: scale(1.02);
     opacity: 0.9;
 }
+/* =========================================
+   味噌ページ（miso.html）等のトップ画像をスマホで全画面にする
+   ========================================= */
+   @media screen and (max-width: 600px) {
+    /* ヘッダー全体の設定：上の隙間（50px）を消して枠を広げる */
+    header#home {
+        margin-top: 0 !important;       /* 上の余白を強制的に0にする */
+        padding: 0 !important;          /* 内側の余白を0にする */
+        max-width: 100% !important;     /* 幅制限を解除 */
+        width: 100% !important;         /* 画面幅いっぱいに */
+    }
+
+    /* 画像の設定：高さ制限（500px）を解除して全画面にする */
+    header#home .w3-image {
+        height: 100vh !important;       /* 画面の高さ(100%)に合わせる */
+        max-height: none !important;    /* HTMLに書かれた「max-height:500px」を無視する */
+        width: 100% !important;         /* 横幅いっぱい */
+        object-fit: cover !important;   /* 比率を保ったまま隙間なく埋める */
+        object-position: center !important; /* 画像の中央を表示 */
+    }
+
+    /* 画像の上の文字（山宗の大豆と味噌）の位置調整 */
+    header#home .w3-display-middle {
+        width: 100%;             /* 文字エリアの幅を確保 */
+        padding: 0 10px;         /* 画面端に文字がくっつかないように */
+        white-space: normal !important; /* 必要なら改行を許可 */
+    }
+}
 </style>
 </head>
 <body>
@@ -172,7 +200,7 @@ h1, h2, h3, h4 {
 
     <div class="w3-center w3-padding-32">
         <p class="w3-large">
-            飛騨の自然が育んだ、こだわりの大豆と<br>
+            飛騨の自然が育んだ、こだわりの大豆と<br class="pc-only-br">
             それを使用した特製の味噌をご紹介します。
         </p>
     </div>
@@ -251,7 +279,7 @@ h1, h2, h3, h4 {
                             <b>『龍のかがやき』</b>は、大粒で味の評判も大変高いお米<b>「龍の瞳」</b>由来の米みそです。
                         </p>
                         <p>
-                            私たちは飛騨地方で「龍の瞳」を生産しております。龍の瞳として販売するには「通常のお米の1.2倍以上の大きさ」という大変厳しい基準があります。<br>
+                            私たちは飛騨地方で「龍の瞳」を生産しております。龍の瞳として販売するには「通常のお米の1.2倍以上の大きさ」という大変厳しい基準があります。<br class="pc-only-br">
                             その基準に惜しくも達せず、龍の瞳として販売されないお米が非常にもったいないと感じ、それらをふんだんに使用した味噌を開発しました。
                         </p>
                     </div>
