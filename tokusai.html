@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>特別栽培農産物に係る表示 | 株式会社山宗（山宗農園）</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="山宗のお米は農林水産省「特別栽培農産物に係る表示ガイドライン」に準拠して栽培・表示しています。栽培責任者、確認責任者、農薬・化学肥料の使用状況をご確認いただけます。">
+<link rel="stylesheet" href="index_style.css">
+<link rel="icon" href="images/ロゴアップ.png">
+<meta name="robots" content="noindex">
+<meta property="og:site_name" content="株式会社山宗">
+<meta property="og:title" content="特別栽培農産物に係る表示 | 株式会社山宗">
+<meta property="og:description" content="山宗のお米は農林水産省ガイドラインに準拠した特別栽培農産物です。栽培・確認・精米の各責任者情報と、農薬・肥料の使用状況をこちらでご確認いただけます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yamasonoen.jp/tokusai.html">
+<meta property="og:image" content="https://yamasonoen.jp/images/logo.png">
+<style>
+/* --- QRコードからのアクセスを想定し、軽量・スマホ最優先のレイアウト --- */
+body {
+    font-family: "Yu Mincho", "遊明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN", "MS PMincho", "MS P明朝", serif;
+    color: #333;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    background-color: #f7f5f0;
+}
+h1, h2, h3, h4 {
+    font-family: "Yu Mincho", "遊明朝", serif;
+    color: #333;
+}
+.w3-content {
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 700px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* ヘッダー（軽量版：画像なし） */
+.tokusai-header {
+    text-align: center;
+    padding: 28px 16px 20px;
+    border-bottom: 3px solid #333;
+}
+.tokusai-header .logo-link img {
+    height: 36px;
+}
+.tokusai-header h1 {
+    font-size: 1.5em;
+    margin: 14px 0 4px;
+    letter-spacing: 0.08em;
+}
+.tokusai-header p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* 一括表示枠：ガイドライン第4の3（1）「他と明瞭に区別される枠内」に準拠 */
+.label-box {
+    border: 2px solid #333;
+    margin: 24px auto;
+    max-width: 480px;
+    background: #fff;
+}
+.label-box .label-title {
+    text-align: center;
+    font-size: 0.85em;
+    padding: 8px;
+    border-bottom: 1px solid #333;
+    background: #333;
+    color: #fff;
+    letter-spacing: 0.1em;
+}
+.label-box .label-name {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 14px 10px;
+    border-bottom: 1px solid #999;
+    letter-spacing: 0.15em;
+}
+.label-box .label-row {
+    display: flex;
+    padding: 8px 14px;
+    border-bottom: 1px dashed #ccc;
+    font-size: 0.95em;
+}
+.label-box .label-row:last-child {
+    border-bottom: none;
+}
+.label-box .label-key {
+    flex: 0 0 9em;
+    color: #555;
+}
+.label-box .label-val {
+    flex: 1;
+}
+.label-box .label-group {
+    border-bottom: 1px solid #999;
+}
+.label-box .label-group:last-of-type {
+    border-bottom: none;
+}
+.label-box .label-group-title {
+    padding: 10px 14px 2px;
+    font-size: 0.85em;
+    color: #777;
+}
+
+/* 節減対象農薬の使用状況テーブル（別記2準拠） */
+.pesticide-table {
+    width: 100%;
+    max-width: 480px;
+    margin: 20px auto 0;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+.pesticide-table caption {
+    text-align: left;
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 6px;
+    padding-left: 2px;
+}
+.pesticide-table th, .pesticide-table td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: center;
+}
+.pesticide-table th {
+    background: #eee;
+}
+.table-note {
+    max-width: 480px;
+    margin: 6px auto 0;
+    font-size: 0.78em;
+    color: #777;
+}
+
+/* 補足説明セクション */
+.tokusai-section {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid #ddd;
+}
+.tokusai-section h3 {
+    font-size: 1.05em;
+    margin-bottom: 10px;
+}
+.tokusai-section p, .tokusai-section li {
+    font-size: 0.92em;
+    color: #444;
+}
+.guideline-ref {
+    font-size: 0.8em;
+    color: #999;
+    text-align: center;
+    margin-top: 30px;
+}
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+}
+.back-link a {
+    color: #333;
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div class="w3-content">
+
+  <!-- ヘッダー：QR経由アクセスを想定し軽量表示 -->
+  <div class="tokusai-header">
+    <a href="index.html" class="logo-link"><img src="images/logo.png" alt="株式会社山宗"></a>
+    <h1>特別栽培農産物に係る表示</h1>
+    <p>農林水産省「特別栽培農産物に係る表示ガイドライン」に準拠</p>
+  </div>
+
+  <!-- ==================================================
+       一括表示（ガイドライン第4の2・3に基づく必須表示事項）
+       ○の部分は商品ごとの実際の名称・数値・住所等に置き換えてください
+  =================================================== -->
+  <div class="label-box">
+    <div class="label-title">農林水産省新ガイドラインによる表示</div>
+    <div class="label-name">特別栽培米</div>
+
+    <div class="label-group">
+      <div class="label-row">
+        <div class="label-key">節減対象農薬</div>
+        <div class="label-val">岐阜県地域比　5割減</div>
+      </div>
+      <div class="label-row">
+        <div class="label-key">化学肥料（窒素成分）</div>
+        <div class="label-val">岐阜県地域比　5割減</div>
+      </div>
+    </div>
+
+    <div class="label-group">
+      <div class="label-row">
+        <div class="label-key">栽培責任者</div>
+        <div class="label-val">山本　宗治</div>
+      </div>
+      <div class="label-row">
+        <div class="label-key">住所</div>
+        <div class="label-val">岐阜県高山市山田町　150番地</div>
+      </div>
+      <div class="label-row">
+        <div class="label-key">連絡先</div>
+        <div class="label-val">TEL　090-1864－4071</div>
+      </div>
+    </div>
+
+    <div class="label-group">
+      <div class="label-row">
+        <div class="label-key">確認責任者</div>
+        <div class="label-val">山本　千隼</div>
+      </div>
+      <div class="label-row">
+        <div class="label-key">住所</div>
+        <div class="label-val">岐阜県高山市山田町　150番地</div>
+      </div>
+      <div class="label-row">
+        <div class="label-key">連絡先</div>
+        <div class="label-val">TEL　080-2500-0568</div>
+      </div>
+    </div>
+
+    <div class="label-group">
+      <div class="label-row">
+        <div class="label-key">精米確認者</div>
+        <div class="label-val">山本　千隼</div>
+      </div>
+      <div class="label-row">
+        <div class="label-key">住所</div>
+        <div class="label-val">岐阜県高山市山田町　150番地</div>
+      </div>
+      <div class="label-row">
+        <div class="label-key">連絡先</div>
+        <div class="label-val">TEL　080-2500-0568</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================================================
+       節減対象農薬の使用状況（別記2準拠／一括表示枠外）
+  =================================================== -->
+  <table class="pesticide-table">
+    <caption>節減対象農薬の使用状況</caption>
+    <thead>
+      <tr>
+        <th>使用資材名</th>
+        <th>用途</th>
+        <th>使用回数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ヒドロキシイソキサゾール</td>
+        <td>殺菌</td>
+        <td>1回</td>
+      </tr>
+      <tr>
+        <td>メタラキシルM</td>
+        <td>殺菌</td>
+        <td>1回</td>
+      </tr>
+      <tr>
+        <td>フルピリミン</td>
+        <td>殺菌</td>
+        <td>1回</td>
+      </tr>
+       <tr>
+        <td>ブロベナゾール</td>
+        <td>殺虫</td>
+        <td>1回</td>
+      </tr>
+       <tr>
+        <td>プレチラクロール</td>
+        <td>除草</td>
+        <td>1回</td>
+      </tr>
+       <tr>
+        <td>プレフタリド</td>
+        <td>除草</td>
+        <td>1回</td>
+      </tr>
+       <tr>
+        <td>メソトリオン</td>
+        <td>除草</td>
+        <td>1回</td>
+      </tr>
+       <tr>
+        <td>メタゾスルフロン</td>
+        <td>除草</td>
+        <td>1回</td>
+      </tr>
+      <tr>
+        <td>エチプロール</td>
+        <td>殺菌</td>
+        <td>1回</td>
+      </tr>
+      <tr>
+        <td>フエリムゾン</td>
+        <td>殺菌</td>
+        <td>1回</td>
+      </tr>
+      <tr>
+        <td>フサライド</td>
+        <td>殺虫</td>
+        <td>1回</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="table-note">※使用資材名は商品名ではなく、主成分を示す一般的名称を記載しています。</p>
+
+  <!-- 補足説明（消費者向け） -->
+  <div class="tokusai-section">
+    <h3>この表示について</h3>
+    <p>
+      本ページは、農林水産省「特別栽培農産物に係る表示ガイドライン」に基づき、
+      当社が生産する特別栽培米の栽培状況・確認体制についてお伝えするものです。
+    </p>
+    <ul>
+      <li>節減対象農薬の使用回数は、慣行レベルの５割以下です。</li>
+      <li>化学肥料の窒素成分量は、慣行レベルの５割以下です。</li>
+      <li>栽培責任者・確認責任者・精米確認者による記録の作成・確認を行っています。</li>
+    </ul>
+    <p>
+      栽培方法や使用資材の詳細についてご質問がある場合は、
+      <a href="index.html#contact">お問い合わせページ</a>よりご連絡ください。
+    </p>
+  </div>
+
+  <p class="guideline-ref">
+    特別栽培農産物に係る表示ガイドライン（平成19年3月23日18消安第14413号）に準拠
+  </p>
+
+  <div class="back-link">
+    <a href="rice.html">山宗のお米ページへ戻る</a>
+  </div>
+
+</div>
+
+</body>
+</html>
