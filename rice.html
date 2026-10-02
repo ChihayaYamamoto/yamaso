@@ -214,7 +214,7 @@ header#home .w3-display-middle {
 
 /* お米ページの商品説明テキスト用設定 */
 .rice-product-text {
-    padding-left: 50px !important; /* PCでは左に50pxの余白を強制 */
+    padding-left: 90px !important; /* PCでは左に90pxの余白を強制 */
 }
 
 /* スマホ表示（幅600px以下）の時の設定 */
@@ -223,9 +223,42 @@ header#home .w3-display-middle {
         padding-left: 0 !important;  /* スマホでは左の余白をゼロに強制 */
         padding-right: 0 !important; /* 右の余白もゼロ */
         text-align: center;          /* 文字を中央揃え */
-        margin-top: 20px;            /* 上に少し隙間を空ける */
+        margin-top: 50px;            /* 上に隙間を空ける */
         width: 100%;                 /* 幅を画面いっぱいにする */
     }
+}
+
+/* 新米バッジ（令和8年度産 新米） */
+.new-rice-badge {
+    display: inline-block;
+    background-color: #c0392b;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 0.75em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 3px;
+    margin-right: 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* 商品画像に貼るバッジ（新米・特別栽培米） */
+.product-image-wrap {
+    position: relative;
+}
+.product-badges {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    display: flex;
+    gap: 6px;
+}
+.product-badges img {
+    width: 64px;
+    height: 64px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
 }
 
 </style>
@@ -304,8 +337,8 @@ header#home .w3-display-middle {
     <div class="w3-quarter w3-margin-bottom">
       <div class="w3-container w3-white w3-center w3-padding-16 w3-card commitment-card">
         <h3>01</h3>
-        <h4>自家製堆肥</h4>
-        <p class="w3-text-grey w3-small">飛騨牛の牛糞を熟成させた土作り</p>
+        <h4>特別栽培</h4>
+        <p class="w3-text-grey w3-small">農薬・化学肥料を慣行の５割以下に低減</p>
         </div>
     </div>
   
@@ -339,19 +372,20 @@ header#home .w3-display-middle {
 
   <!-- Detailed Sections -->
   
-  <!-- 1. 自家製堆肥 -->
-  <div id="compost" class="w3-row commitment-section w3-padding-64">
+  <!-- 1. 特別栽培 -->
+  <div id="tokusai" class="w3-row commitment-section w3-padding-64">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="images/堆肥.png" class="w3-round w3-image w3-opacity-min" alt="Soil and Produce" width="600" height="400">
+     <img src="images/特別栽培.jpg" class="w3-round w3-image w3-opacity-min" alt="Special Cultivation" width="600" height="400">
     </div>
     <div class="w3-col m6 w3-padding-large">
-      <h2 class="w3-center"><span class="commitment-number">1</span>自家製堆肥</h2>
-      
-      <img src="images/堆肥.png" class="w3-round w3-image w3-opacity-min w3-hide-large w3-hide-medium" alt="Soil and Produce" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:20px;">
+      <h2 class="w3-center"><span class="commitment-number">1</span>特別栽培</h2>
 
-      <p class="w3-large">第一のこだわりは自家製堆肥です。</p>
-      <p>私たちは、飛騨牛の牛糞をはじめとする様々な有機物を、1年間熟成させて利用しております。</p>
-      <p>その自家製堆肥を田んぼに散布することで、土そのものの地力を高め、稲にとって最高の土壌を作り上げます。</p>
+      <img src="images/特別栽培.jpg" class="w3-round w3-image w3-opacity-min w3-hide-large w3-hide-medium" alt="Special Cultivation" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:20px;">
+
+      <p class="w3-large">第一のこだわりは特別栽培です。</p>
+      <p>私たちのお米は、農林水産省の「特別栽培農産物に係る表示ガイドライン」に基づき、節減対象農薬の使用回数及び化学肥料の窒素成分量を、地域の慣行レベルの５割以下に抑えて栽培しています。</p>
+      <p>栽培責任者・確認責任者による記録の作成と確認を行い、生産過程を明確にすることで、安心してお召し上がりいただけるお米づくりに努めています。</p>
+      <p><a href="tokusai.html">特別栽培農産物に係る表示はこちら</a></p>
     </div>
   </div>
 
@@ -359,7 +393,7 @@ header#home .w3-display-middle {
     <div class="w3-col m6 w3-padding-large">
       <h2 class="w3-center"><span class="commitment-number">2</span>息吹農法</h2>
       
-      <img src="images/ibuki.jpg" class="w3-round w3-image w3-opacity-min w3-hide-large w3-hide-medium" alt="高山もち" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:20px;">
+      <img src="images/息吹農法イメージ図.png" class="w3-round w3-image w3-opacity-min w3-hide-large w3-hide-medium" alt="息吹農法イメージ図" style="width:100%; max-height:300px; object-fit:contain; background:#fff; margin-bottom:20px;">
 
       <p class="w3-large">第二のこだわりは息吹農法です。</p>
       <p>この農法は水を改善し、土の団粒構造を促進させます。</p>
@@ -367,7 +401,7 @@ header#home .w3-display-middle {
       <p>以上の影響から、元気な稲が育ち、米の栄養と味を改善します。</p>
     </div>
     <div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="images/ibuki.jpg" class="w3-round w3-image w3-opacity-min" alt="高山もち" style="height:500px; width:87%; object-fit:cover;">
+     <img src="images/息吹農法イメージ図.png" class="w3-round w3-image w3-opacity-min" alt="息吹農法イメージ図" style="height:500px; width:87%; object-fit:contain; background:#fff;">
     </div>
   </div>
 
@@ -391,7 +425,7 @@ header#home .w3-display-middle {
     <div class="w3-col m6 w3-padding-large">
       <h2 class="w3-center"><span class="commitment-number">4</span>肥料</h2>
       
-      <img src="images/肥料.jpg" class="w3-round w3-image w3-opacity-min w3-hide-large w3-hide-medium" alt="Fertilizer and Beans" style="width:100%; max-height:300px; object-fit:cover; margin-bottom:20px;">
+      <img src="images/肥料イメージ図.jpg" class="w3-round w3-image w3-opacity-min w3-hide-large w3-hide-medium" alt="肥料イメージ図" style="width:100%; max-height:300px; object-fit:contain; background:#fff; margin-bottom:20px;">
 
       <p class="w3-large">第四のこだわりは肥料です。</p>
       <p>肥料は主に、ミネラル肥料と有機入り肥料の二つを利用しました。</p>
@@ -399,7 +433,7 @@ header#home .w3-display-middle {
       <p><b>有機入り肥料：</b> 上質なアミノ酸を含有したものを利用し、旨味と栄養価の高いお米を目指しました。</p>
     </div>
     <div class="w3-col m6 w3-padding-large w3-hide-small">
-     <img src="images/肥料.jpg" class="w3-round w3-image w3-opacity-min" alt="Fertilizer and Beans" width="600" height="400">
+     <img src="images/肥料イメージ図.jpg" class="w3-round w3-image w3-opacity-min" alt="肥料イメージ図" width="600" height="400" style="object-fit:contain; background:#fff;">
     </div>
   </div>
 
@@ -412,24 +446,36 @@ header#home .w3-display-middle {
 
     <div class="w3-row-padding w3-margin-bottom">
         <div class="w3-col m4">
-            <img src="images/こだわり米販売.jpg" class="w3-image w3-round" alt="高山もち" style="height:250px; width:100%; object-fit:cover;">
+            <div class="product-image-wrap">
+                <img src="images/こだわり米販売.jpg" class="w3-image w3-round" alt="こだわり米" style="height:250px; width:100%; object-fit:cover;">
+                <div class="product-badges">
+                    <img src="images/バッジ_新米.png" alt="令和8年度産 新米">
+                    <img src="images/バッジ_特別栽培米.png" alt="特別栽培米">
+                </div>
+            </div>
         </div>
         <div class="w3-col m8 rice-product-text">
-            <h3 class="w3-text-grey"><b>こだわり米</b></h3>
+            <h3 class="w3-text-grey"><span class="new-rice-badge">令和8年度産 新米</span><b>こだわり米</b></h3>
             <p class="w3-large">
                 4つのこだわりを込めて作ったコシヒカリです。<br class="pc-only-br">
-                口に残る甘さと粘り気に定評があります。ぜひ一度そのままお召し上がりください。
+                口に残る甘さと、しっかりとした粘り気に定評があります。噛むほどに旨味が広がるので、まずは何もつけず、そのままお召し上がりください。ぬかや胚芽ごといただく玄米は、ビタミン・ミネラル・食物繊維がより多く摂れるため、健康志向の方におすすめです。こだわり米は玄米でも、お米本来の甘みとやわらかさを感じていただけます。
             </p>
             <a href="shop.html" class="btn-buy">購入ページへ</a>
+            <p style="margin-top: 10px;"><a href="tokusai.html">特別栽培に関する表示はこちら</a></p>
         </div>
     </div>
 
     <div class="w3-row-padding w3-margin-bottom">
         <div class="w3-col m4">
-            <img src="images/高山もち販売.jpg" class="w3-image w3-round" alt="高山もち" style="height:250px; width:100%; object-fit:cover;">
+            <div class="product-image-wrap">
+                <img src="images/高山もち販売.jpg" class="w3-image w3-round" alt="高山もち" style="height:250px; width:100%; object-fit:cover;">
+                <div class="product-badges">
+                    <img src="images/バッジ_新米.png" alt="令和8年度産 新米">
+                </div>
+            </div>
         </div>
         <div class="w3-col m8 rice-product-text">
-            <h3 class="w3-text-grey"><b>高山もち</b></h3>
+            <h3 class="w3-text-grey"><span class="new-rice-badge">令和8年度産 新米</span><b>高山もち</b></h3>
             <p class="w3-large">
                 飛騨高山の冷涼な気候が育んだ、最高級のもち米です。<br class="pc-only-br">
                 きめ細やかで伸びが良く、コシの強さが特徴。お餅にした時の風味と甘みは格別で、地元でも長く愛され続けている逸品です。

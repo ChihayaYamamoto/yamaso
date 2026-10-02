@@ -75,6 +75,7 @@ h1, h2, h3, h4 {
 
 /* 商品画像 */
 .product-img-container {
+    position: relative;
     width: 100%;
     height: 250px;
     overflow: hidden;
@@ -88,6 +89,33 @@ h1, h2, h3, h4 {
 }
 .product-card:hover .product-img {
     transform: scale(1.05);
+}
+
+/* 商品画像に貼るバッジ（新米・特別栽培米） */
+.product-badges {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+.product-badges img {
+    width: 56px;
+    height: 56px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+/* 商品の特徴タグ（新米・特別栽培米・白米 など） */
+.product-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    font-size: 0.85rem;
+    color: #555;
+}
+.product-tags li {
+    line-height: 1.6;
 }
 
 /* 商品情報エリア */
@@ -157,6 +185,12 @@ h1, h2, h3, h4 {
 .btn-buy i {
     margin-right: 5px;
 }
+.btn-buy.btn-disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: default;
+    pointer-events: none;
+}
 
 /* バリエーション選択（kg数など） */
 .variation-select {
@@ -176,6 +210,40 @@ h1, h2, h3, h4 {
     .product-img-container {
         height: 200px;
     }
+}
+
+/* 送料テーブル */
+.shipping-table {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto 10px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+.shipping-table th, .shipping-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: center;
+}
+.shipping-table th {
+    background-color: #333;
+    color: #fff;
+    font-weight: normal;
+}
+.shipping-table td:first-child {
+    text-align: left;
+}
+.shipping-pref {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 2px;
+}
+.shipping-note {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 0.85rem;
+    color: #777;
 }
 </style>
 </head>
@@ -233,10 +301,7 @@ h1, h2, h3, h4 {
         <p class="w3-large">
             山宗自慢のこだわり農産物と加工品をお届けします。<br class="pc-only-br">
             ご自宅用はもちろん、贈り物にもぜひご利用ください。<br>
-            配送料（全商品一律）：<br class="sp-only-br">本州・九州　　¥300<br>
-            <span class="pc-only-space">　　　　　　　　　　　</span>北海道　　　　¥1,100<br>
-            <span class="pc-only-space">　　　　　　　　　　　</span>沖縄　　　　　¥1,300<br>
-            <span class="text-blue-underline">¥15,000以上のお買い上げで送料無料</span>
+            送料は商品と発送先地域により異なります。<a href="#shipping">詳しくはこちら</a>
         </p>
     </div>
     <a href="https://ptxucy5tvou6qprct1sr.stores.jp" 
@@ -255,11 +320,20 @@ h1, h2, h3, h4 {
             <div class="product-card">
                 <div class="product-img-container">
                     <img src="images/こだわり米販売.jpg" alt="白米こだわり米" class="product-img">
+                    <div class="product-badges">
+                        <img src="images/バッジ_新米.png" alt="令和8年度産 新米">
+                        <img src="images/バッジ_特別栽培米.png" alt="特別栽培米">
+                    </div>
                 </div>
                 <div class="product-info">
                     <div class="product-name">白米 こだわり米</div>
-                    <p class="product-desc">4つのこだわりにて育てた「こだわり米」です。
-                        口に残るような甘みと、みずみずしさのあるお米です。</p>
+                    <p class="product-desc">4つのこだわりを込めて作ったコシヒカリです。
+                        口に残る甘さと、しっかりとした粘り気に定評があります。噛むほどに旨味が広がるので、まずは何もつけず、そのままお召し上がりください。</p>
+                    <ul class="product-tags">
+                        <li>ー令和8年度　新米</li>
+                        <li>ー特別栽培米</li>
+                        <li>ー飛騨高山産</li>
+                    </ul>
                     <div class="product-ingredients">原材料：単一原料米（岐阜県高山産）</div>
                     
                     <a href="rice.html" class="btn-detail">こだわり等の説明を見る &raquo;</a>
@@ -268,7 +342,7 @@ h1, h2, h3, h4 {
                     <div class="product-options" style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee;">
                             <span style="font-size: 0.95rem;">5kg</span>
-                            <span class="product-price" style="margin: 0;">¥5,500<small>(税込)</small></span>
+                            <span class="product-price" style="margin: 0;">¥4,350<small>(税込)＋送料</small></span>
                         </div>
                     </div>
                     
@@ -287,11 +361,19 @@ h1, h2, h3, h4 {
             <div class="product-card">
                 <div class="product-img-container">
                     <img src="images/玄米販売.jpg" alt="玄米こだわり米" class="product-img">
+                    <div class="product-badges">
+                        <img src="images/バッジ_新米.png" alt="令和8年度産 新米">
+                        <img src="images/バッジ_特別栽培米.png" alt="特別栽培米">
+                    </div>
                 </div>
                 <div class="product-info">
                     <div class="product-name">玄米 こだわり米</div>
-                    <p class="product-desc">4つのこだわりにて育てた「こだわり米」の玄米です。
-                        栄養価が高く、噛むほどに味わい深い玄米です。健康志向の方におすすめです。</p>
+                    <p class="product-desc">ぬかや胚芽ごといただく玄米は、ビタミン・ミネラル・食物繊維がより多く摂れるため、健康志向の方におすすめです。こだわり米は玄米でも、お米本来の甘みとやわらかさを感じていただけます。</p>
+                    <ul class="product-tags">
+                        <li>ー令和8年度　新米</li>
+                        <li>ー特別栽培米</li>
+                        <li>ー飛騨高山産</li>
+                    </ul>
                     <div class="product-ingredients">原材料：単一原料米（岐阜県高山産）</div>
                     
                     <a href="rice.html" class="btn-detail">こだわり等の説明を見る &raquo;</a>
@@ -299,28 +381,65 @@ h1, h2, h3, h4 {
                     <div class="product-options" style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee;">
                             <span style="font-size: 0.95rem;">5kg</span>
-                            <span class="product-price" style="margin: 0;">¥5,000 <small>(税込)</small></span>
+                            <span class="product-price" style="margin: 0;">¥3,950<small>(税込)＋送料</small></span>
                         </div>
                     </div>
-                    <a href="https://ptxucy5tvou6qprct1sr.stores.jp/items/69799d572200bb4a256d3224" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
+                    <a href="https://ptxucy5tvou6qprct1sr.stores.jp/items/69799d572200bb4a256d3224"
+                       target="_blank"
+                       rel="noopener noreferrer"
                        class="btn-buy">
                        購入ページへ
                     </a>
-                    
+
                 </div>
             </div>
         </div>
 
-        
+        <!-- 商品3: 高山もち -->
+        <div class="w3-col l4 m6 w3-margin-bottom">
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="images/高山もち販売.jpg" alt="高山もち" class="product-img">
+                    <div class="product-badges">
+                        <img src="images/バッジ_新米.png" alt="令和8年度産 新米">
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">高山もち</div>
+                    <p class="product-desc">飛騨高山の冷涼な気候が育んだ、最高級のもち米です。
+                        きめ細やかで伸びが良く、コシの強さが特徴。お餅にした時の風味と甘みは格別で、地元でも長く愛され続けている逸品です。</p>
+                    <ul class="product-tags">
+                        <li>ー令和8年度　新米</li>
+                        <li>ー飛騨高山産</li>
+                    </ul>
+                    <div class="product-ingredients">原材料：単一原料米（岐阜県高山産）</div>
+
+                    <a href="rice.html" class="btn-detail">こだわり等の説明を見る &raquo;</a>
+
+                    <div class="product-options" style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee;">
+                            <span style="font-size: 0.95rem;">3kg</span>
+                            <span class="product-price" style="margin: 0;">¥2,900<small>(税込)＋送料</small></span>
+                        </div>
+                    </div>
+                    <!-- STORESの商品ページURLが決まったら href="#" を書き換えてください -->
+                    <a href="#"
+                       class="btn-buy">
+                       購入ページへ
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <!-- 大豆・味噌 Section -->
     <h2 class="category-title">大豆・味噌</h2>
     <div class="w3-row-padding">
 
-        <!-- 商品4: 大豆 -->
+        <!-- 商品4: 大豆（非表示中）
         <div class="w3-col l4 m6 w3-margin-bottom">
             <div class="product-card">
                 <div class="product-img-container">
@@ -328,9 +447,9 @@ h1, h2, h3, h4 {
                 </div>
                 <div class="product-info">
                     <div class="product-name">山宗の大粒大豆</div>
-                    <p class="product-desc">大粒でタンパク質が豊富な品種。煮豆や自家製味噌作りに最適です。</p>
+                    <p class="product-desc" style="display:none;">大粒でタンパク質が豊富な品種。煮豆や自家製味噌作りに最適です。</p>
                     <div class="product-ingredients">原材料：大豆（岐阜県高山産 里のほほえみ）</div>
-                    
+
                     <a href="miso.html#soybean" class="btn-detail">こだわり等の説明を見る &raquo;</a>
                     <div class="product-options" style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee;">
@@ -339,16 +458,18 @@ h1, h2, h3, h4 {
                         </div>
                     </div>
 
-                    <a href="https://ptxucy5tvou6qprct1sr.stores.jp/items/6979a7ae6e3db599a337ca08" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
+                    <a href="https://ptxucy5tvou6qprct1sr.stores.jp/items/6979a7ae6e3db599a337ca08"
+                       target="_blank"
+                       rel="noopener noreferrer"
                        class="btn-buy">
                        購入ページへ
                     </a>
-                    
+
                 </div>
             </div>
         </div>
+        -->
+
 
         <!-- 商品5: 龍のかがやき（味噌） -->
         <div class="w3-col l4 m6 w3-margin-bottom">
@@ -365,7 +486,7 @@ h1, h2, h3, h4 {
                     <div class="product-options" style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee;">
                             <span style="font-size: 0.95rem;">2個セット（一個450g）</span>
-                            <span class="product-price" style="margin: 0;">¥2,500<small>(税込)</small></span>
+                            <span class="product-price" style="margin: 0;">¥2,500<small>(税込)＋送料</small></span>
                         </div>
                         
                     </div>
@@ -403,15 +524,12 @@ h1, h2, h3, h4 {
                     <div class="product-options" style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee;">
                             <span style="font-size: 0.95rem;">1箱2本セット（1本500ml）</span>
-                            <span class="product-price" style="margin: 0;">¥2,400<small>(税込)</small></span>
+                            <span class="product-price" style="margin: 0;">準備中</span>
                         </div>
                     </div>
 
-                    <a href="https://ptxucy5tvou6qprct1sr.stores.jp/items/6979a9bb2200bbbd4d6d31e5" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="btn-buy">
-                       購入ページへ
+                    <a href="#" class="btn-buy btn-disabled">
+                       準備中
                     </a>
                     
                 </div>
@@ -437,16 +555,13 @@ h1, h2, h3, h4 {
                     <div class="product-options" style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee;">
                             <span style="font-size: 0.95rem;">1箱</span>
-                            <span class="product-price" style="margin: 0;">¥3,500 <small>(税込)</small></span>
+                            <span class="product-price" style="margin: 0;">準備中</span>
                         </div>
                         
                     </div>
 
-                    <a href="https://ptxucy5tvou6qprct1sr.stores.jp/items/6979acb66e3db5ccd937c9ec" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="btn-buy">
-                       購入ページへ
+                    <a href="#" class="btn-buy btn-disabled">
+                       準備中
                     </a>
                 
                 </div>
@@ -457,7 +572,70 @@ h1, h2, h3, h4 {
 
 
     <hr>
-    
+
+    <div class="w3-container w3-padding-32 w3-center" id="shipping">
+        <h2 class="category-title">送料について</h2>
+        <p>発送先地域と商品の重量・サイズにより、以下の送料が別途かかります。</p>
+
+        <table class="shipping-table">
+            <thead>
+                <tr>
+                    <th>発送先地域</th>
+                    <th>お米5kg</th>
+                    <th>もち3kg</th>
+                    <th>味噌2個セット<br>（クール便）</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>関東・信越・北陸・中部・関西
+                        <span class="shipping-pref">茨城・栃木・群馬・埼玉・千葉・東京・神奈川・山梨・新潟・長野・富山・石川・福井・岐阜・静岡・愛知・三重・滋賀・京都・大阪・兵庫・奈良・和歌山</span>
+                    </td>
+                    <td>¥770</td>
+                    <td>¥770</td>
+                    <td>¥880</td>
+                </tr>
+                <tr>
+                    <td>南東北・中国・四国
+                        <span class="shipping-pref">宮城・山形・福島・鳥取・島根・岡山・広島・山口・徳島・香川・愛媛・高知</span>
+                    </td>
+                    <td>¥880</td>
+                    <td>¥880</td>
+                    <td>¥980</td>
+                </tr>
+                <tr>
+                    <td>北東北・九州
+                        <span class="shipping-pref">青森・岩手・秋田・福岡・佐賀・長崎・熊本・大分・宮崎</span>
+                    </td>
+                    <td>¥990</td>
+                    <td>¥990</td>
+                    <td>¥1,090</td>
+                </tr>
+                <tr>
+                    <td>北海道
+                        <span class="shipping-pref">北海道</span>
+                    </td>
+                    <td>¥1,890</td>
+                    <td>¥1,890</td>
+                    <td>¥1,880</td>
+                </tr>
+                <tr>
+                    <td>沖縄
+                        <span class="shipping-pref">沖縄</span>
+                    </td>
+                    <td>¥2,070</td>
+                    <td>¥2,070</td>
+                    <td>¥1,730</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="shipping-note">
+            ※上記は税込価格です。お米・もちは基本運賃×消費税(10%)、味噌はクール宅急便加算後に消費税(10%)を加算して算出しています。
+        </p>
+    </div>
+
+    <hr>
+
     <div class="w3-container w3-padding-32 w3-center w3-light-grey w3-round">
         <h3>決済について</h3>
         <p>
