@@ -22,6 +22,131 @@
     "url": "https://yamasonoen.jp/"
   }
 </script>
+<style>
+/* お知らせ（トピックス）セクション：画像＋題名を横並びにした小さな長方形カード */
+.topics-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+    text-align: left;
+}
+.topic-title-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 240px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 6px 10px;
+    text-align: left;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.topic-title-card:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+.topic-card-text {
+    flex: 1;
+    min-width: 0;
+}
+.news-date {
+    display: block;
+    font-family: sans-serif;
+    font-size: 0.65em;
+    color: #888;
+    margin-bottom: 2px;
+}
+.topic-title {
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.topic-card-thumb {
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    background: #f7f7f7;
+    border-radius: 3px;
+}
+.topic-card-thumb-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    background: #f2f2f2;
+    border: 1px dashed #ccc;
+    border-radius: 3px;
+    color: #aaa;
+    font-size: 0.65em;
+}
+
+/* トピックス詳細モーダル */
+.topic-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.topic-modal-overlay.show {
+    display: flex;
+}
+.topic-modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 480px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 6px;
+    position: relative;
+    padding: 24px 20px 20px;
+    text-align: left;
+}
+.topic-modal-close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    line-height: 1;
+    cursor: pointer;
+    color: #666;
+}
+.topic-modal-content img {
+    display: block;
+    max-width: 55%;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    margin: 0 auto 14px;
+    border-radius: 4px;
+}
+.topic-modal-content h3 {
+    margin: 0 0 10px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+    font-size: 1.1em;
+}
+.topic-modal-content p {
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 1.7;
+}
+</style>
 </head>
 <body>
 
@@ -88,6 +213,65 @@
 
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px">
+
+  <!-- お知らせ（トピックス） Section -->
+  <div class="w3-center w3-padding-32" id="news">
+    <div class="w3-center w3-padding-32">
+      <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">お知らせ</h2>
+    </div>
+    <div class="topics-row">
+      <div class="topic-title-card" onclick="openTopicModal('topic1')">
+        <img src="images/試食販売ポスター.png" class="topic-card-thumb" alt="お米と味噌の試食販売会">
+        <div class="topic-card-text">
+          <span class="news-date">2026年10月11日</span>
+          <span class="topic-title">お米と味噌の試食販売会</span>
+        </div>
+      </div>
+
+      <div class="topic-title-card" onclick="openTopicModal('topic2')">
+        <img src="images/新米販売開始.jpg" class="topic-card-thumb" alt="新米販売開始">
+        <div class="topic-card-text">
+          <span class="news-date">2026年10月2日</span>
+          <span class="topic-title">新米販売開始のお知らせ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- トピックス詳細の中身（非表示テンプレート） -->
+  <template id="topic1-detail">
+    <img src="images/試食販売ポスター.png" alt="お米と味噌の試食販売会" style="object-fit:contain;">
+    <h3>お米と味噌の試食販売会</h3>
+    <p>
+      「お米と味噌の試食販売会」を開催します。新米ごはんと味噌汁を、生産者の話を聞きながら試食いただけます。<br>
+      日時：10月11日（日）10:00〜15:00<br>
+      会場：The FUSION Grill & Kitchen（愛知県半田市亀崎町9丁目123-8）<br>
+      山宗のこだわり米（特別栽培米）、米みそ「龍のかがやき」を試食・販売。こだわり米弁当（限定35食・1個400円）も販売いたします。
+    </p>
+  </template>
+  <template id="topic2-detail">
+    <img src="images/新米販売開始.jpg" alt="新米販売開始" style="object-fit:contain;">
+    <h3>新米販売開始のお知らせ</h3>
+    <p>
+      今年も自信を持っておすすめできる、おいしいお米ができあがりました。<br>
+      口に残る甘さとしっかりとした粘り気が特徴の、特別栽培コシヒカリです。<br><br>
+      オンラインストアと、飛騨高山の直売所「飛騨国府 特選館あじか」にて販売しております。<br>
+      詳しい栽培のこだわりや商品のご購入は、以下よりご覧ください。
+    </p>
+    <p style="margin-top:12px;">
+      ・<a href="rice.html">お米の説明ページ</a><br>
+      ・<a href="shop.html">購入ページ</a><br>
+      ・<a href="https://www.hidatakayama.or.jp/spot/detail_3600.html" target="_blank" rel="noopener noreferrer">飛騨国府 特選館あじか</a>
+    </p>
+  </template>
+
+  <!-- トピックス詳細モーダル -->
+  <div id="topic-modal-overlay" class="topic-modal-overlay" onclick="closeTopicModal()">
+    <div class="topic-modal-content" onclick="event.stopPropagation()">
+      <button class="topic-modal-close" onclick="closeTopicModal()" aria-label="閉じる">&times;</button>
+      <div id="topic-modal-body"></div>
+    </div>
+  </div>
 
   <!--企業情報 Section -->
   <div class="w3-center w3-padding-64" id="about">
@@ -201,5 +385,20 @@
 
 <script src="index.js" defer></script>
 <script src="toggleMenu.js" defer></script>
+<script>
+function openTopicModal(id) {
+    var tpl = document.getElementById(id + '-detail');
+    var body = document.getElementById('topic-modal-body');
+    if (!tpl || !body) return;
+    body.innerHTML = '';
+    body.appendChild(tpl.content.cloneNode(true));
+    document.getElementById('topic-modal-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+function closeTopicModal() {
+    document.getElementById('topic-modal-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+}
+</script>
 </body>
 </html>
